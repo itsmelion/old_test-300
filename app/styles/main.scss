@@ -25,7 +25,7 @@
 }
 
 // bower & vendors
-@import "bower_components\flexboxgrid\dist\flexboxgrid.css";
+@import "../node_modules/flexboxgrid/dist/flexboxgrid.css";
 @import "reset";
 // Telas
 @import "variaveis";
@@ -42,7 +42,6 @@ body {
   font-size: 100%;
   font-size-adjust: 200%;
   font-family: "Gotham Bold", "Roboto", sans-serif;
-  overflow-x: hidden;
 }
 
 a {
@@ -63,43 +62,4 @@ a {
     display: block;
     height: auto;
   }
-}
-
-#pixel-perfect {
-  width: 1366px;
-  height: auto;
-  position: absolute;
-  top: 0;
-  pointer-events: none;
-  z-index: 1200;
-  @include transition;
-  opacity: .5;
-  transition-property: opacity;
-}
-
-html:hover,
-body:hover {
-  #pixel-perfect {
-    opacity: 0;
-  }
-}
-
-#pixel-perfect-button {
-  position: fixed;
-  width: auto;
-  height: 36px;
-  padding: 0 15px;
-  cursor: help;
-  user-select: none;
-  box-sizing: content-box;
-  background-color: #222;
-  color: rgba(230, 230, 255, .5);
-  bottom: 20px;
-  right: 20px;
-  border-radius: 36px;
-  z-index: 1201;
-  line-height: 36px;
-  font-size: 12px;
-  text-align: center;
-  box-shadow: 0 3px 5px #222;
 }

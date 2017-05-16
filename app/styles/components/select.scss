@@ -1,58 +1,21 @@
-$background: #e74c3c;
-$select-color: #fff;
-$select-background: #c0392b;
-$select-width: 220px;
-$select-height: 40px;
-body {
-  font-family: Lato, Arial;
-  color: $select-color;
-  padding: 20px;
-  background-color: $background;
-}
-
-h1 {
-  font-weight: normal;
-  font-size: 40px;
-  font-weight: normal;
-  text-transform: uppercase;
-  span {
-    font-size: 13px;
-    display: block;
-    padding-left: 4px;
-  }
-}
-
-p {
-  margin-top: 200px;
-  a {
-    text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    color: #fff;
-    padding: 5px 10px;
-    margin: 0 5px;
-    background-color: darken($select-background, 2);
-    @include transition;
-    &:hover {
-      background-color: darken($select-background, 5);
-    }
-  }
-}
-
 .select-hidden {
   display: none;
   visibility: hidden;
-  padding-right: 10px;
 }
 
 .select {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  font-size: 16px;
-  color: $select-color;
-  width: $select-width;
-  height: $select-height;
+  font-size: .8rem;
+  color: $orange;
+  width: 232px;
+  height: 42px;
+  text-align: left;
+  line-height: 42px;
+  margin-left: 2em;
+  box-sizing: border-box;
+  padding-right: 10px;
 }
 
 .select-styled {
@@ -61,29 +24,28 @@ p {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: $select-background;
-  padding: 8px 15px;
+  line-height: 42px;
+  padding: 0 12px;
+  width: 100%;
   @include transition;
-  &:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border: 7px solid transparent;
-    border-color: $select-color transparent transparent transparent;
-    position: absolute;
-    top: 16px;
-    right: 10px;
-  }
-  &:hover {
-    background-color: darken($select-background, 2);
-  }
+  border-bottom: 1px solid white;
+  color: white;
+  text-align: left;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &:hover,
   &:active,
   &.active {
-    background-color: darken($select-background, 5);
-    &:after {
-      top: 9px;
-      border-color: transparent transparent $select-color transparent;
-    }
+    color: $orange;
+    background-color: transparent;
+  }
+  &::after {
+    content: "✔";
+    position: absolute;
+    right: 3px;
+    line-height: 42px;
   }
 }
 
@@ -92,21 +54,22 @@ p {
   position: absolute;
   top: 100%;
   right: 0;
+  line-height: 42px;
   left: 0;
   z-index: 999;
   margin: 0;
-  padding: 0;
   list-style: none;
-  background-color: darken($select-background, 5);
+  background-color: white;
+  border: 1px solid $orange;
+  width: 100%;
+  margin-top: 4px;
+  padding: 0 12px;
   li {
     margin: 0;
-    padding: 12px 0;
-    text-indent: 15px;
-    border-top: 1px solid darken($select-background, 10);
     @include transition;
+    text-align: left;
     &:hover {
-      color: $select-background;
-      background: $select-color;
+      color: $orange;
     }
     &[rel="hide"] {
       display: none;

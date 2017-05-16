@@ -43,19 +43,27 @@
       font-weight: 700;
     }
   }
-  .call-to-action {
-    margin-top: 3em;
+  .call-to-action,
+  .selects {
     flex-grow: 1;
   }
+  .call-to-action {
+    margin-bottom: 2em;
+    margin-top: 3em;
+  }
   button {
-    line-height: 45px;
+    line-height: 42px;
     background: rgba(255, 255, 255, .1);
     border: none;
     border-radius: 36px;
     outline: none;
     padding: 0 2em;
+    min-width: 140px;
+    vertical-align: middle;
+    font-size: .8rem;
     color: white;
     text-transform: uppercase;
+    margin: 0 3em;
     font-family: $Gotham-Bold;
     @include transition;
     &.mail-send {
@@ -78,13 +86,14 @@
     }
   }
   input[type=email] {
-    line-height: 45px;
+    line-height: 42px;
     background: rgba(255, 255, 255, .4);
     border: none;
+    vertical-align: middle;
     border-radius: 6px;
     outline: none;
-    padding: 0 3em 0 1em;
-    margin-right: -2.5em;
+    padding: 0 90px 0 2em;
+    margin-right: -70px;
     color: white;
     @include transition;
     &:focus {

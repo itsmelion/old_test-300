@@ -29,14 +29,6 @@
   <meta name="msapplication-wide310x150logo" content="images/favicons/mstile-310x150.png" />
   <meta name="msapplication-square310x310logo" content="images/favicons/mstile-310x310.png" />
 
-
-  <!-- build:css styles/vendor.css -->
-  <!-- bower:css -->
-  <link rel="stylesheet" href="/bower_components/flexboxgrid/dist/flexboxgrid.css" />
-  <!-- endbower -->
-  <!-- endbuild -->
-
-  <!-- Main styles -->
   <link rel="stylesheet" href="styles/main.css">
 
 </head>
@@ -135,7 +127,7 @@
             </li>
 
             <li>
-              <img src="/images/slide02.png">
+              <img src="images/slide02.png">
               <article class="caption">
                 <p>Just another day under the sun.</p>
                 <legend>
@@ -146,7 +138,7 @@
             </li>
 
             <li>
-              <img src="/images/slide03.png">
+              <img src="images/slide03.png">
               <article class="caption">
                 <p>Duuude.. Sliders.</p>
                 <legend>
@@ -174,7 +166,7 @@
               magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
           </div>
 
-          <div class="row call-to-action">
+          <div class="row between-xs middle-xs call-to-action">
 
             <div class="box">
               <input type="email" placeholder="Seu email">
@@ -193,28 +185,18 @@
             </div>
 
           </div>
-          <div class="row selects">
+          <div class="row between-xs middle-xs selects">
 
             <div class="box">
               <input type="checkbox" id="test2" checked="checked" />
-              <label for="test2">Yellow</label>
+              <label for="test2">Enviar novidades frequentes!</label>
             </div>
 
             <div class="box">
               <select id="mounth">
-                <option value="hide">-- Month --</option>
-                <option value="january" rel="icon-temperature">January</option>
-                <option value="february">February</option>
-                <option value="march">March</option>
-                <option value="april">April</option>
-                <option value="may">May</option>
-                <option value="june">June</option>
-                <option value="july">July</option>
-                <option value="august">August</option>
-                <option value="september">September</option>
-                <option value="october">October</option>
-                <option value="november">November</option>
-                <option value="december">December</option>
+                <option value="hide">Selecione para qual email enviar</option>
+                <option value="january" rel="icon-temperature">raphael@trezentos.com.br</option>
+                <option value="january" rel="icon-temperature">teste@trezentos.com.br</option>
               </select>
             </div>
 
@@ -227,58 +209,15 @@
     </section>
 
 
-    <footer>
-      <p>♥ from the Yeoman team</p>
+    <footer class="row center-xs middle-xs">
+      <a title="300"><img src="images/300.png" alt="300 icone" /></a>
+      <p>300 - Todos os direitos reservados</p>
     </footer>
 
   </div>
 
-  <img id="pixel-perfect" src="images/pixel-perfect.jpg">
-  <div id="pixel-perfect-button">pixel perfect</div>
-
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-  <script>
-    (function (b, o, i, l, e, r) {
-      b.GoogleAnalyticsObject = l;
-      b[l] || (b[l] =
-        function () {
-          (b[l].q = b[l].q || []).push(arguments)
-        });
-      b[l].l = +new Date;
-      e = o.createElement(i);
-      r = o.getElementsByTagName(i)[0];
-      e.src = 'https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e, r)
-    }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
-
-  </script>
-
-  <!-- build:js scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script src="/bower_components/tether/dist/js/tether.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-
-  <!-- build:js scripts/plugins.js -->
-  <script src="/bower_components/bootstrap/js/dist/util.js"></script>
-  <script src="/bower_components/bootstrap/js/dist/alert.js"></script>
-  <script src="/bower_components/bootstrap/js/dist/button.js"></script>
-  <script src="/bower_components/bootstrap/js/dist/carousel.js"></script>
-  <script src="/bower_components/bootstrap/js/dist/collapse.js"></script>
-  <script src="/bower_components/bootstrap/js/dist/dropdown.js"></script>
-  <script src="/bower_components/bootstrap/js/dist/modal.js"></script>
-  <script src="/bower_components/bootstrap/js/dist/scrollspy.js"></script>
-  <script src="/bower_components/bootstrap/js/dist/tab.js"></script>
-  <script src="/bower_components/bootstrap/js/dist/tooltip.js"></script>
-  <script src="/bower_components/bootstrap/js/dist/popover.js"></script>
-  <!-- endbuild -->
-
-  <!-- build:js scripts/main.js -->
+  <script src="scripts/jquery/dist/jquery.js"></script>
   <script src="scripts/main.js"></script>
-  <!-- endbuild -->
 </body>
 
 </html>

@@ -103,31 +103,31 @@
     // Start Parallax
 
     /* detect touch */
-    if ("ontouchstart" in window) {
-      document.documentElement.className = document.documentElement.className + " touch";
+    if ('ontouchstart' in window) {
+      document.documentElement.className = document.documentElement.className + ' touch';
     }
-    if (!$("html").hasClass("touch")) {
+    if (!$('html').hasClass('touch')) {
       /* background fix */
-      $(".parallax").css("background-attachment", "fixed");
+      $('.parallax').css('background-attachment', 'fixed');
     }
 
     /* resize background images */
     function backgroundResize() {
       var windowH = $(window).height();
-      $(".background").each(function (i) {
+      $('.background').each(function (i) {
         var path = $(this);
         // variables
         var contW = path.width();
         var contH = path.height();
-        var imgW = path.attr("data-img-width");
-        var imgH = path.attr("data-img-height");
+        var imgW = path.attr('data-img-width');
+        var imgH = path.attr('data-img-height');
         var ratio = imgW / imgH;
         // overflowing difference
-        var diff = parseFloat(path.attr("data-diff"));
+        var diff = parseFloat(path.attr('data-diff'));
         diff = diff ? diff : 0;
         // remaining height to have fullscreen image only on parallax
         var remainingH = 0;
-        if (path.hasClass("parallax") && !$("html").hasClass("touch")) {
+        if (path.hasClass('parallax') && !$('html').hasClass('touch')) {
           var maxH = contH > windowH ? contH : windowH;
           remainingH = windowH - contH;
         }
@@ -140,9 +140,9 @@
           imgH = imgW / ratio;
         }
         //
-        path.data("resized-imgW", imgW);
-        path.data("resized-imgH", imgH);
-        path.css("background-size", imgW + "px " + imgH + "px");
+        path.data('resized-imgW', imgW);
+        path.data('resized-imgH', imgH);
+        path.css('background-size', imgW + 'px ' + imgH + 'px');
       });
     }
     $(window).resize(backgroundResize);
@@ -155,15 +155,15 @@
       var topWindow = $(window).scrollTop();
       var bottomWindow = topWindow + heightWindow;
       var currentWindow = (topWindow + bottomWindow) / 2;
-      $(".parallax").each(function (i) {
+      $('.parallax').each(function (i) {
         var path = $(this);
         var height = path.height();
         var top = path.offset().top;
         var bottom = top + height;
         // only when in range
         if (bottomWindow > top && topWindow < bottom) {
-          var imgW = path.data("resized-imgW");
-          var imgH = path.data("resized-imgH");
+          var imgW = path.data('resized-imgW');
+          var imgH = path.data('resized-imgH');
           // min when image touch top of window
           var min = 0;
           // max when image touch bottom of window
@@ -175,13 +175,13 @@
           // value with linear interpolation
           var value = min + (max - min) * (currentWindow - top) / (bottom - top);
           // set background-position
-          var orizontalPosition = path.attr("data-oriz-pos");
-          orizontalPosition = orizontalPosition ? orizontalPosition : "50%";
-          $(this).css("background-position", orizontalPosition + " " + value + "px");
+          var orizontalPosition = path.attr('data-oriz-pos');
+          orizontalPosition = orizontalPosition ? orizontalPosition : '50%';
+          $(this).css('background-position', orizontalPosition + ' ' + value + 'px');
         }
       });
     }
-    if (!$("html").hasClass("touch")) {
+    if (!$('html').hasClass('touch')) {
       $(window).resize(parallaxPosition);
       //$(window).focus(parallaxPosition);
       $(window).scroll(parallaxPosition);
