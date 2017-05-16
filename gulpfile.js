@@ -11,18 +11,14 @@ var dev = true;
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/main.scss')
-    .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.sass.sync({
       outputStyle: 'expanded',
-      precision: 2,
-      includePaths: ['.']
+      precision: 2
     }).on('error', $.sass.logError))
-    .pipe($.autoprefixer({
-      browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']
-    }))
-    .pipe($.if(dev, $.sourcemaps.write()))
-    .pipe(gulp.dest('.tmp/styles'))
+    .pipe($.autoprefixer())
+    .pipe($.if(dev, $.sourcemaps.write(), gulp.dest('dist/')))
+    .pipe(gulp.dest('.tmp/'))
     .pipe(reload({
       stream: true
     }));
@@ -30,10 +26,9 @@ gulp.task('styles', () => {
 
 gulp.task('scripts', () => {
   return gulp.src('app/scripts/**/*.js')
-    .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.babel())
-    .pipe($.if(dev, $.sourcemaps.write('.')))
+    .pipe($.if(dev, $.sourcemaps.write('.'), gulp.dest('dist/scripts')))
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({
       stream: true
@@ -61,7 +56,7 @@ gulp.task('lint', () => {
 gulp.task('html', ['styles', 'scripts'], () => {
   return gulp.src('app/*.html')
     .pipe($.useref({
-      searchPath: ['.tmp', 'app', '.']
+      searchPath: ['.tmp', 'app', 'dist', '.']
     }))
     .pipe($.if(/\.js$/, $.uglify({
       compress: {
@@ -147,7 +142,7 @@ gulp.task('serve:dist', ['default'], () => {
 });
 
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'scripts', 'styles', 'html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({
     title: 'build',
     gzip: true
